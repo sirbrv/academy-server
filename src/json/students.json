@@ -1,0 +1,62 @@
+[
+  {
+    "id": 73,
+    "dni": "63594949493",
+    "nombre": "Victor",
+    "apellido": "Peter",
+    "email": "sirbrv@gmail.com",
+    "fechaNacimiento": "2023-12-31T03:00:00.000Z",
+    "adress": "Enriqueta Compte y Rique",
+    "city": "montevideo",
+    "celular": "093903094",
+    "condicion": "No Actívo"
+  },
+  {
+    "id": 74,
+    "dni": "886989761",
+    "nombre": "Victor",
+    "apellido": "Brown",
+    "email": "sirbrv@gmail.com",
+    "adress": "Enriqueta Compt y Rique",
+    "city": "Montevideo",
+    "celular": "993093094",
+    "condicion": "Actívo"
+  },
+  {
+    "id": 76,
+    "dni": "12345678",
+    "nombre": "José",
+    "apellido": "Perez",
+    "email": "sirbrv@gmail.com",
+    "adress": "Enriqueta Compt y Rique",
+    "city": "Montevideo",
+    "celular": "993093094",
+    "condicion": "Actívo"
+  },
+  {
+    "id": 77,
+    "dni": "7854798039",
+    "nombre": "sfdfsdfsdfds",
+    "apellido": "Brown",
+    "email": "sirbrv@gmail.com",
+    "password": "jabdjabd00",
+    "fechaNacimiento": "2023-12-31T03:00:00.000Z",
+    "adress": "Enriqueta Compt y Rique",
+    "city": "Montevideo",
+    "celular": "3443434334",
+    "condicion": "Actívo"
+  },
+  {
+    "id": 78,
+    "dni": "4563464634634",
+    "nombre": "Victor",
+    "apellido": "Brown",
+    "email": "sirbrv@gmail.com",
+    "password": "jabdjabd00",
+    "fechaNacimiento": "2023-12-31T03:00:00.000Z",
+    "adress": "Enriqueta Compt y Rique",
+    "city": "Montevideo",
+    "celular": "34553334534",
+    "condicion": "No Actívo"
+  }
+]

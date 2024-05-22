@@ -1,0 +1,16 @@
+[
+  {
+    "id": 3,
+    "codigo": "2000",
+    "nombre": "Curso de HTML",
+    "descripcion": "Curso Básico de HTML",
+    "costo": 12000
+  },
+  {
+    "codigo": "1001",
+    "nombre": "Alimentos Pepsi Colas S. A.",
+    "descripcion": "lkjhkjhlkjhlkhklhk\nbbmb,mbm,bmbn\nb,mb,mbmnm,bmbn\n,m,mbm,nbm,b\nmnbm,b,mbm,bmnbm,",
+    "costo": "12000",
+    "id": 4
+  }
+]
