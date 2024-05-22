@@ -65,7 +65,6 @@ const delContact = async (req, res) => {
 //**************************************************** */
 
 const AddContact = async (req, res) => {
-  console.log("Registro entrante.....:", req.body);
   const newContact = {
    // id: parseInt(req.body.id),
     nombre: req.body.nombre,
