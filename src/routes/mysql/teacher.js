@@ -7,7 +7,7 @@ const {
   AddTeacher,
   upDateTeacher,
   getTeacherDni,
-} = require("../../controller/mysql/teachers");
+} = require("../../controller/mysql/Teachers");
 
 /** ***************************************** */
 /* Rutas de acceso a la tabla de Profesores  */
@@ -18,6 +18,6 @@ router.get("/teacher/:id", getTeacher);
 router.get("/teacher/:dni", getTeacherDni);
 router.post("/teacher", AddTeacher);
 router.delete("/teacher/:id", delTeacher);
-router.put("/teacher/:id",  upDateTeacher);
+router.put("/teacher/:id", upDateTeacher);
 
 module.exports = router;
