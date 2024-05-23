@@ -65,7 +65,6 @@ const getUserDni = async (req, res) => {
 //**************************************************** */
 
 const loginUser = async (req, res) => {
-  console.log("Datos de entrada....:", req.body);
   const usuario = await Users.findOne({ where: { email: req.body.email } });
   if (!usuario) {
     return res.status(400).json({
@@ -123,12 +122,10 @@ const delUser = async (req, res) => {
 //**************************************************** */
 
 const AddUser = async (req, res) => {
-  console.log(req.body);
   const existeItem = await Users.findOne({
     where: { dni: req.body.dni },
   });
   if (existeItem) {
-    console.log("existe");
     return res
       .status(400)
       .json({ message: "El código indicado ya está registrado" });
@@ -137,7 +134,6 @@ const AddUser = async (req, res) => {
   if (req.body.password) {
     encritaClave = await bcrypt.hash(req.body.password, 10);
   }
-  console.log("Clave encriptada.....:", encritaClave);
   const newUser = {
     dni: req.body.dni,
     nombre: req.body.nombre,
@@ -174,8 +170,7 @@ const AddUser = async (req, res) => {
 
 const upDateUser = async (req, res) => {
   const id = parseInt(req.params.id);
-  console.log("req.body...", req.body);
-  console.log("req.file...", req.file);
+
   await Users.findOne({ where: { id: req.params.id } })
     .then((item) => {
       if (item) {

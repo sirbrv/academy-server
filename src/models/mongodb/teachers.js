@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
-
+// const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const TeacherSchema = new mongoose.Schema(
   {
     dni: { type: String, required: true, unique: true },

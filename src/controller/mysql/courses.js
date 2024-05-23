@@ -81,12 +81,10 @@ const delCourse = async (req, res) => {
 //**************************************************** */
 
 const AddCourse = async (req, res) => {
-  console.log(req.body);
   const existeItem = await Courses.findOne({
     where: { codigo: req.body.codigo },
   });
   if (existeItem) {
-    console.log("existe");
     return res
       .status(400)
       .json({ message: "El código indicado ya está registrado" });
@@ -106,7 +104,6 @@ const AddCourse = async (req, res) => {
   try {
     const registro = await Courses.create(newCourse);
     // const ressult = courseController(req, res);
-    console.log("...Result..:", registro);
     res.status(201).json({
       status: "201",
       data: registro,
@@ -123,8 +120,7 @@ const AddCourse = async (req, res) => {
 
 const upDateCourse = async (req, res) => {
   const id = parseInt(req.params.id);
-  console.log("req.body...", req.body);
-  console.log("req.file...", req.file);
+
   await Courses.findOne({ where: { id: req.params.id } })
     .then((item) => {
       if (item) {

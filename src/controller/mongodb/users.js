@@ -1,8 +1,9 @@
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
 const { generarJWT, verifyJWT } = require("../../services/general");
 const { enviarMail } = require("../../services/sendMail");
 const Users = require("../../models/mongodb/users");
 const Teacher = require("../../models/mongodb/teachers");
+const bcrypt = require("bcryptjs");
 
 //**************************************************** */
 //     Busca de datos generales de la base de datos    //
@@ -81,12 +82,10 @@ const delUser = async (req, res) => {
 //**************************************************** */
 
 const AddUser = async (req, res) => {
-  console.log("Estoy en la version de mongodb.....:", req.body);
   const existeItem = await Users.findOne({
     where: { dni: req.body.dni },
   });
   if (existeItem) {
-    console.log("existe");
     return res
       .status(400)
       .json({ message: "El código indicado ya está registrado" });
@@ -110,7 +109,6 @@ const AddUser = async (req, res) => {
     condicion: req.body.status,
   });
   user.password = await user.encryptPassword(req.body.password);
-  console.log(user.password);
 
   try {
     const registro = await user.save();
@@ -135,8 +133,6 @@ const AddUser = async (req, res) => {
 
 const upDateUser = async (req, res) => {
   const id = req.params.id;
-  console.log("req.body...", req.body);
-  console.log("req.file...", req.file);
   try {
     const item_data = await Users.findByIdAndUpdate(
       id,
@@ -168,10 +164,8 @@ const upDateUser = async (req, res) => {
 //**************************************************** */
 
 const loginUser = async (req, res, next) => {
-  console.log("Datos de entrada....:", req.body);
   const { email, password } = req.body;
   const usuario = await Users.findOne({ email });
-  console.log(usuario);
   if (!usuario) {
     return res.status(400).json({
       data: {
@@ -210,10 +204,8 @@ const loginUser = async (req, res, next) => {
 };
 
 const loginTecher = async (req, res, next) => {
-  console.log("Datos de entrada....:", req.body);
   const { email, password } = req.body;
   const usuario = await Teacher.findOne({ email });
-  console.log(usuario);
   if (!usuario) {
     next();
   }
@@ -252,7 +244,6 @@ const cambioClaveUser = async (req, res) => {
   // console.log("Datos del token.....:", verifyJWT(req.body.token));
   let user = new Users();
   let encriClave = await user.encryptPassword(req.body.newPassword, 10);
-  console.log("Encrita....:", encriClave);
   const usuario = await Users.findOne({ email: req.body.email });
   // console.log("usuario..........:", usuario);
   if (!usuario) {
@@ -260,7 +251,6 @@ const cambioClaveUser = async (req, res) => {
       .status(400)
       .json({ status: "400", message: "El Usuário, no está Registrado..." });
   } else {
-    console.log("pase a verificación.....:", req.body.oldPassword);
     const comp = await usuario.matchPassword(
       req.body.oldPassword,
       usuario.password

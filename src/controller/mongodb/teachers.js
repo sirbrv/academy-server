@@ -78,7 +78,7 @@ const delTeacher = async (req, res) => {
 //**************************************************** */
 
 const AddTeacher = async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const existeItem = await Teachers.findOne({ dni: req.body.dni });
   if (existeItem) {
     return res
@@ -99,7 +99,7 @@ const AddTeacher = async (req, res) => {
   teacher.password = await teacher.encryptPassword(req.body.password);
   try {
     const registro = await teacher.save();
-    console.log("...Result..:", registro);
+    // console.log("...Result..:", registro);
     res.status(201).json({
       status: "201",
       data: registro,
@@ -116,8 +116,8 @@ const AddTeacher = async (req, res) => {
 
 const upDateTeacher = async (req, res) => {
   const id = req.params.id;
-  console.log("req.body...", req.body);
-  console.log("req.file...", req.file);
+  // console.log("req.body...", req.body);
+  // console.log("req.file...", req.file);
   try {
     const teacher = await Teachers.findByIdAndUpdate(id, {
       nombre: req.body.nombre,
@@ -127,7 +127,7 @@ const upDateTeacher = async (req, res) => {
     // if (req.body.password) {
     teacher.password = await teacher.encryptPassword(req.body.password);
     const regTeacher = await teacher.save()
-    console.log(teacher.password);
+    // console.log(teacher.password);
     // }
     res.json({
       data: regTeacher,

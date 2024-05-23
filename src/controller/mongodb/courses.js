@@ -79,7 +79,6 @@ const delCourse = async (req, res) => {
 //**************************************************** */
 
 const AddCourse = async (req, res) => {
-  console.log(req.body);
   const existeItem = await Courses.findOne({ codigo: req.body.codigo });
   if (existeItem) {
     return res
@@ -111,7 +110,6 @@ const AddCourse = async (req, res) => {
   try {
     const registro = await course.save();
     // const ressult = courseController(req, res);
-    console.log("...Result..:", registro);
     res.status(201).json({
       status: "201",
       data: registro,
@@ -128,8 +126,6 @@ const AddCourse = async (req, res) => {
 
 const upDateCourse = async (req, res) => {
   const id = req.params.id;
-  console.log("req.body...", req.body);
-  console.log("req.file...", req.file);
   try {
     const course = await Courses.findByIdAndUpdate(id, {
       nombre: req.body.nombre,

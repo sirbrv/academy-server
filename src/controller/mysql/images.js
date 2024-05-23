@@ -5,10 +5,6 @@ const CoursesImgs = db.coursesImgs;
 /*********************** Seccion de manejo de CoursesImgs  ***************** */
 
 exports.getCourseImgs = async (req, res) => {
-  console.log("==========================================");
-  console.log("req.body...", req.body);
-  console.log("req.query...", req.query);
-  console.log("==========================================");
   let page = req.query.page ? req.query.page - 1 : 0;
   page = page < 0 ? 0 : page;
   let limit = parseInt(req.query.limit || 10);
@@ -38,7 +34,6 @@ exports.getCourseImgs = async (req, res) => {
 };
 
 const CourseImg = async (req, res) => {
-  console.log("req.body..", req.file);
   let filePath = "";
   if (req.file) {
     filePath = `/imagens/Courses/${req.file.filename}`;
@@ -51,7 +46,6 @@ const CourseImg = async (req, res) => {
 };
 
 const createCourseImg = async (req, res) => {
-  console.log("req.body..", req.body);
   const filename = req.file.filename;
   const existeCourse = await CoursesImgs.findOne({
     where: {
@@ -100,11 +94,9 @@ const createCourseImg = async (req, res) => {
 };
 
 exports.getCourseImg = async (req, res) => {
-  console.log(req.params.id);
   const existeCourse = await CoursesImgs.findOne({
     where: { id: req.params.id },
   });
-  console.log("imagenes....:", existeCourse);
   if (!existeCourse) {
     return res
       .ststus(400)
@@ -114,7 +106,6 @@ exports.getCourseImg = async (req, res) => {
 };
 
 exports.getCourseImages = async (req, res) => {
-  console.log("Course....:", req.params.id);
   const existeCourse = await CoursesImgs.findAll({
     where: { codCourse: req.params.id },
   });
@@ -123,13 +114,10 @@ exports.getCourseImages = async (req, res) => {
       .ststus(200)
       .json({ status: "403", message: "El ID no está registrado" });
   }
-  console.log(existeCourse);
   res.ststus(200).json({ status: "200", CourseImgs: existeCourse });
 };
 
 exports.updateCourseImg = async (req, res, next) => {
-  console.log("id..", req.params.id);
-  console.log("req.body..", req.body);
   await CoursesImgs.findOne({ where: { id: req.params.id } }).then((item) => {
     if (item) {
       let existeCourse = {
@@ -147,7 +135,7 @@ exports.updateCourseImg = async (req, res, next) => {
           });
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
           res.ststus(500).json({ status: "500", message: err.message });
         });
     }
@@ -155,11 +143,9 @@ exports.updateCourseImg = async (req, res, next) => {
 };
 
 exports.deleteCourseImg = async (req, res, next) => {
-  console.log("entrada....:", req.params.id);
   const existeCourse = await CoursesImgs.findOne({
     where: { id: req.params.id },
   });
-  console.log("Registro....:", existeCourse);
 
   if (!existeCourse) {
     return res

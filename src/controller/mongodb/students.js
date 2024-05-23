@@ -78,7 +78,6 @@ const delStudent = async (req, res) => {
 //**************************************************** */
 
 const AddStudent = async (req, res) => {
-  console.log(req.body);
   const existeItem = await Students.findOne({ dni: req.body.dni });
   if (existeItem) {
     return res
@@ -99,7 +98,6 @@ const AddStudent = async (req, res) => {
   student.password = await student.encryptPassword(req.body.password);
   try {
     const registro = await student.save();
-    console.log("...Result..:", registro);
     res.status(201).json({
       status: "201",
       data: registro,
@@ -116,8 +114,6 @@ const AddStudent = async (req, res) => {
 
 const updateStudent = async (req, res) => {
   const id = req.params.id;
-  console.log("req.body...", req.body);
-  console.log("req.file...", req.file);
   try {
     const student = await Students.findByIdAndUpdate(id, {
       nombre: req.body.nombre,
@@ -127,7 +123,6 @@ const updateStudent = async (req, res) => {
     // if (req.body.password) {
     student.password = await student.encryptPassword(req.body.password);
     const regStudent = await student.save();
-    console.log(student.password);
     // }
     res.json({
       data: regStudent,
