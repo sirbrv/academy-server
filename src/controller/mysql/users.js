@@ -1,6 +1,7 @@
 const { Sequelize } = require("sequelize");
 const db = require("../../config/configDB");
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const { generarJWT, verifyJWT } = require("../../services/general");
 const { enviarMail } = require("../../services/sendMail");
 const Users = db.users;
