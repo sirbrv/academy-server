@@ -13,17 +13,17 @@ exports.generarJWT = (item) => {
 
   const secret = process.env.JWT_SECRET_KEY;
   const token = jwt.sign(payload, secret);
-  console.log("Este es el Token....", token);
+  // console.log("Este es el Token....", token);
   return token;
 };
 
 exports.verifyJWT = (token) => {
   const secret = process.env.JWT_SECRET_KEY;
-  const decoded = jwt.verify(token, secret);
+  const decoded = jwt.verify(token, secret);    // console.log("La clave expiro");
+
   const decodedToken = jwt.decode(token, { complete: true });
-  console.log("Result token.....:", decodedToken);
+  // console.log("Result token.....:", decodedToken);
   if (Date.now() > decodedToken.payload.exp) {
-    console.log("La clave expiro");
   }
   if (decodedToken) {
     console.log("decoded.....", decodedToken.payload);
@@ -44,9 +44,9 @@ exports.encriptar = async (password) => {
 };
 
 exports.comparePassword = async function (password, passwordDB) {
-  console.log(password);
-  console.log(passwordDB);
+  // console.log(password);
+  // console.log(passwordDB);
   const match = await bcrypt.compare(password, passwordDB);
-  console.log(match);
+  // console.log(match);
   return match;
 };

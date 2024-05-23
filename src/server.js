@@ -7,7 +7,7 @@ const port = process.env.PORT || 5000;
 const app = express();
 app.use(morgan("dev"));
 app.use(cookieParser());
-console.log(process.env.PORT);
+// console.log(process.env.PORT);
 /* ******************************************** */
 /*   **** Sección de config. de DB              */
 /* ******************************************** */
@@ -57,10 +57,10 @@ app.use("/api/v3", require("./routes/mongodb/teacher.js"));
 app.use("/api/v3", require("./routes/mongodb/Student.js"));
 app.use("/api/v3", require("./routes/mongodb/Matricula.js"));
 
-app.use("*", (req, res) => {
-  console.log("Request Type:", req.method);
-  console.log("Request URL:", req.originalUrl);
-});
+// app.use("*", (req, res) => {
+//   console.log("Request Type:", req.method);
+//   console.log("Request URL:", req.originalUrl);
+// });
 
 app.use((red, res, next) => {
   res.status(404).sendFile(__dirname + "/public/html/404.html");
@@ -70,11 +70,12 @@ app.get("/imagens/:img", function (req, res) {
   res.sendFile(`imagens/${img}`);
 });
 
-app.use("*", (req, res) => {
-  console.log("Request Type:", req.method);
-  console.log("Request URL:", req.originalUrl);
-});
+// app.use("*", (req, res) => {
+//   console.log("Request Type:", req.method);
+//   console.log("Request URL:", req.originalUrl);
+// });
 
 app.listen(port, () => {
-  console.log("Servidor disponible en  http://localhost:" + port);
+ /// console.log("Servidor disponible en  http://localhost:" + port);
+  console.log("Servidor disponible en puerto ..:" + port);
 });
