@@ -1,4 +1,5 @@
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 exports.generarJWT = (item) => {
@@ -19,7 +20,7 @@ exports.generarJWT = (item) => {
 
 exports.verifyJWT = (token) => {
   const secret = process.env.JWT_SECRET_KEY;
-  const decoded = jwt.verify(token, secret);    // console.log("La clave expiro");
+  const decoded = jwt.verify(token, secret); // console.log("La clave expiro");
 
   const decodedToken = jwt.decode(token, { complete: true });
   // console.log("Result token.....:", decodedToken);
