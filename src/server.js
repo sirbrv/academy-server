@@ -45,7 +45,7 @@ app.use("/api", require("./routes/json/Matricula.js"));
 
 // /* ************ acceso a las rutas de BD mysql ***********/
 app.use("/api/v2", require("./routes/mysql/course.js"));
-app.use("/api/v2", require("./routes/mysql/Teacher.js"));
+app.use("/api/v2", require("./routes/mysql/teacher.js"));
 app.use("/api/v2", require("./routes/mysql/users"));
 // app.use("/api/v2", require("./routes/mysql/Student.js"));
 // app.use("/api/v2", require("./routes/mysql/Matricula.js"));
@@ -53,7 +53,7 @@ app.use("/api/v2", require("./routes/mysql/users"));
 // /* ************ acceso a las rutas de BD MongoDB ***********/
 app.use("/api/v3", require("./routes/mongodb/users"));
 app.use("/api/v3", require("./routes/mongodb/course.js"));
-app.use("/api/v3", require("./routes/mongodb/Teacher.js"));
+app.use("/api/v3", require("./routes/mongodb/teacher.js"));
 app.use("/api/v3", require("./routes/mongodb/Student.js"));
 app.use("/api/v3", require("./routes/mongodb/Matricula.js"));
 
