@@ -16,13 +16,13 @@ require("./config/configMongoDB.js");
 /* ******************************************** */
 /*   **** Sección de Middleware                 */
 /* ******************************************** */
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-  })
-);
-// app.use(cors());
+// app.use(
+//   cors({
+//     origin: "http://localhost:5173",
+//     credentials: true,
+//   })
+// );
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -76,6 +76,6 @@ app.get("/imagens/:img", function (req, res) {
 // });
 
 app.listen(port, () => {
- /// console.log("Servidor disponible en  http://localhost:" + port);
+  /// console.log("Servidor disponible en  http://localhost:" + port);
   console.log("Servidor disponible en puerto ..:" + port);
 });
