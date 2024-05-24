@@ -48,7 +48,7 @@ app.use("/api/v2", require("./routes/mysql/teacher.js"));
 app.use("/api/v2", require("./routes/mysql/users"));
 // app.use("/api/v2", require("./routes/mysql/Student.js"));
 // app.use("/api/v2", require("./routes/mysql/Matricula.js"));
-
+///
 // /* ************ acceso a las rutas de BD MongoDB ***********/
 app.use("/api/v3", require("./routes/mongodb/users"));
 app.use("/api/v3", require("./routes/mongodb/course.js"));
