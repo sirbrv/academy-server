@@ -7,7 +7,6 @@ const port = process.env.PORT || 5000;
 const app = express();
 app.use(morgan("dev"));
 app.use(cookieParser());
-// console.log(process.env.PORT);
 /* ******************************************** */
 /*   **** Sección de config. de DB              */
 /* ******************************************** */
@@ -19,7 +18,6 @@ require("./config/configMongoDB.js");
 app.use(
   cors({
     origin: "http://localhost:5173",
-    origin: "https://incredible-brioche-9fa76b.netlify.app",
     credentials: true,
   })
 );
@@ -55,8 +53,8 @@ app.use("/api/v2", require("./routes/mysql/users"));
 app.use("/api/v3", require("./routes/mongodb/users"));
 app.use("/api/v3", require("./routes/mongodb/course.js"));
 app.use("/api/v3", require("./routes/mongodb/teacher.js"));
-app.use("/api/v3", require("./routes/mongodb/Student.js"));
-app.use("/api/v3", require("./routes/mongodb/Matricula.js"));
+app.use("/api/v3", require("./routes/mongodb/student.js"));
+app.use("/api/v3", require("./routes/mongodb/matricula.js"));
 
 // app.use("*", (req, res) => {
 //   console.log("Request Type:", req.method);
