@@ -54,8 +54,8 @@ app.use("/api/v3", require("./routes/mongodb/users"));
 app.use("/api/v3", require("./routes/mongodb/course.js"));
 app.use("/api/v3", require("./routes/mongodb/teacher.js"));
 app.use("/api/v3", require("./routes/mongodb/Student.js"));
-app.use("/api/v3", require("./routes/mongodb/matricula.js"));
-
+app.use("/api/v3", require("./routes/mongodb/Matricula.js"));
+//
 // app.use("*", (req, res) => {
 //   console.log("Request Type:", req.method);
 //   console.log("Request URL:", req.originalUrl);
