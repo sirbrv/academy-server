@@ -19,11 +19,11 @@ router.get("/studentdni/:dni", getStudentDni);
 router.post("/student", validarData, AddStudent);
 router.put("/student/:id", validarData, updateStudent);
 router.delete("/student/:id", delStudent);
-
+//
 /* *******************************************************  */
 /*              Sección de validación de datos              */
 /* *******************************************************  */
-
+//
 function validarData(req, res, next) {
   // console.log("Body....", req.body);
   const { dni, nombre, descripcion } = req.body;
