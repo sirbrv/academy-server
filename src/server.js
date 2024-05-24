@@ -17,7 +17,10 @@ require("./config/configMongoDB.js");
 /* ******************************************** */
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://incredible-brioche-9fa76b.netlify.app/",
+    ],
     credentials: true,
   })
 );
